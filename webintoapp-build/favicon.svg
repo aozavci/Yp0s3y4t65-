@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="#1F2937"/>
+  
+  <!-- Question Mark -->
+  <path d="M256 140C290 140 320 170 320 210C320 250 280 260 280 290V310" stroke="white" stroke-width="40" stroke-linecap="round"/>
+  <circle cx="280" cy="370" r="20" fill="white"/>
+  
+  <!-- Surrounding Icons -->
+  <!-- Clock -->
+  <circle cx="120" cy="180" r="30" fill="#FF9F1C"/>
+  <path d="M120 170L120 180L130 180" stroke="#1F2937" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Book -->
+  <rect x="80" y="240" width="40" height="30" rx="5" fill="white"/>
+  <path d="M85 245L115 245M85 255L105 255" stroke="#1F2937" stroke-width="3"/>
+  
+  <!-- Magnifying Glass -->
+  <circle cx="400" cy="180" r="25" stroke="#06B6D4" stroke-width="8"/>
+  <line x1="415" y1="195" x2="430" y2="210" stroke="#06B6D4" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Atom -->
+  <circle cx="380" cy="300" r="8" fill="#3B82F6"/>
+  <ellipse cx="380" cy="300" rx="20" ry="8" stroke="#3B82F6" stroke-width="3" transform="rotate(45 380 300)"/>
+  <ellipse cx="380" cy="300" rx="20" ry="8" stroke="#3B82F6" stroke-width="3" transform="rotate(-45 380 300)"/>
+  
+  <!-- Gear -->
+  <path d="M140 350L160 350L150 370Z" fill="#F59E0B" stroke="#F59E0B" stroke-width="3" transform="rotate(0 150 360)"/>
+  <path d="M140 350L160 350L150 370Z" fill="#F59E0B" stroke="#F59E0B" stroke-width="3" transform="rotate(72 150 360)"/>
+  <path d="M140 350L160 350L150 370Z" fill="#F59E0B" stroke="#F59E0B" stroke-width="3" transform="rotate(144 150 360)"/>
+  <path d="M140 350L160 350L150 370Z" fill="#F59E0B" stroke="#F59E0B" stroke-width="3" transform="rotate(216 150 360)"/>
+  <path d="M140 350L160 350L150 370Z" fill="#F59E0B" stroke="#F59E0B" stroke-width="3" transform="rotate(288 150 360)"/>
+  
+  <!-- Color Wheel -->
+  <circle cx="320" cy="400" r="20" fill="url(#colorWheel)"/>
+  <defs>
+    <radialGradient id="colorWheel" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#FF0000"/>
+      <stop offset="17%" stop-color="#FF00FF"/>
+      <stop offset="33%" stop-color="#0000FF"/>
+      <stop offset="50%" stop-color="#00FFFF"/>
+      <stop offset="67%" stop-color="#00FF00"/>
+      <stop offset="83%" stop-color="#FFFF00"/>
+      <stop offset="100%" stop-color="#FF0000"/>
+    </radialGradient>
+  </defs>
+</svg>
