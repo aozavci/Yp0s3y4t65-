@@ -1,0 +1,42 @@
+{
+  "project": "Did You Know? Web App",
+  "description": "A React.js & Tailwind CSS-based trivia app that displays interesting facts in various categories.",
+  "rules": [
+    {
+      "name": "Use Functional Components",
+      "description": "All components should be functional components with React Hooks."
+    },
+    {
+      "name": "State Management with useState & useEffect",
+      "description": "Use React's built-in hooks for local state management. Avoid unnecessary re-renders."
+    },
+    {
+      "name": "Data Storage in JSON",
+      "description": "All fact data and user favorites should be stored in a JSON file locally."
+    },
+    {
+      "name": "Responsive Design",
+      "description": "Use Tailwind CSS for styling and ensure the UI is mobile-friendly."
+    },
+    {
+      "name": "React Router for Navigation",
+      "description": "Use React Router to manage different pages like Home, Fact Cards, and Favorites."
+    },
+    {
+      "name": "Optimize Performance",
+      "description": "Lazy load images, minimize unnecessary state updates, and optimize JSON data access."
+    },
+    {
+      "name": "Dark Mode Support",
+      "description": "Implement a toggle for dark mode using Tailwind's dark mode feature."
+    },
+    {
+      "name": "Lightweight Build",
+      "description": "Ensure the final project size remains between 50MB and 100MB for mobile conversion."
+    },
+    {
+      "name": "Code Readability",
+      "description": "Follow clean coding practices: meaningful variable names, clear function structures, and comments where necessary."
+    }
+  ]
+}
