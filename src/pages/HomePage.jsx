@@ -73,7 +73,7 @@ const HomePage = () => {
         className="text-center mb-12"
       >
         <div className="flex items-center justify-center gap-4 mb-6">
-          <img src="/logo.svg" alt="Biliyor musun? Logo" className="w-20 h-20 object-contain dark:invert" />
+          <img src="./logo.svg" alt="Biliyor musun? Logo" className="w-20 h-20 object-contain dark:invert" />
           <h1 className="text-4xl font-bold text-gray-800 dark:text-white">Biliyor musun?</h1>
         </div>
         <p className="text-xl text-gray-600 dark:text-gray-300 mt-4">

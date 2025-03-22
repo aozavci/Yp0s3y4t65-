@@ -3,9 +3,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { FaArrowLeft, FaArrowRight, FaHome } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import FactCard from '../components/FactCard';
-import factsData from '../data/facts.json';
 
 const FactCardsPage = ({ favorites = [], onToggleFavorite, isFavorite }) => {
+  const [factsData, setFactsData] = useState({});
   const { category } = useParams();
   const navigate = useNavigate();
   const [facts, setFacts] = useState([]);
@@ -13,17 +13,31 @@ const FactCardsPage = ({ favorites = [], onToggleFavorite, isFavorite }) => {
   const [direction, setDirection] = useState(0); // -1 sol, 1 sağ, 0 başlangıç
 
   useEffect(() => {
-    // Kategori değiştiğinde, ilk bilgiye dön
-    setCurrentFactIndex(0);
-    setDirection(0);
+    const loadFactsData = async () => {
+      try {
+        const response = await import('../data/facts.json');
+        setFactsData(response.default);
+        
+        // Kategori değiştiğinde, ilk bilgiye dön
+        setCurrentFactIndex(0);
+        setDirection(0);
+        
+        // Kategoriye ait bilgileri yükle
+        if (category && response.default[category]) {
+          setFacts(response.default[category]);
+          console.log('Category loaded:', category, 'Facts:', response.default[category]);
+        } else {
+          console.error('Category not found:', category);
+          // Kategori bulunamadıysa ana sayfaya yönlendir
+          navigate('/');
+        }
+      } catch (error) {
+        console.error('Error loading facts data:', error);
+        navigate('/');
+      }
+    };
     
-    // Kategoriye ait bilgileri yükle
-    if (category && factsData[category]) {
-      setFacts(factsData[category]);
-    } else {
-      // Kategori bulunamadıysa ana sayfaya yönlendir
-      navigate('/');
-    }
+    loadFactsData();
   }, [category, navigate]);
 
   const handlePrevFact = () => {

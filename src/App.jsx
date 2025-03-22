@@ -9,6 +9,7 @@ import SearchPage from './pages/SearchPage';
 import RandomFactPage from './pages/RandomFactPage';
 import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotFoundPage';
+import BannerAd from './components/BannerAd';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -66,7 +67,7 @@ function App() {
       >
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         
-        <main className="pb-12">
+        <main className="pb-16">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route 
@@ -97,6 +98,7 @@ function App() {
         <footer className="bg-gray-100 dark:bg-gray-800 py-4 text-center text-gray-600 dark:text-gray-300">
           <p>Biliyor musun?</p>
         </footer>
+        <BannerAd />
       </motion.div>
     </div>
   );
