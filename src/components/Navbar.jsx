@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaSun, FaMoon, FaBars, FaTimes, FaHome, FaHeart } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getItem, setItem } from '../utils/localStorage';
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -10,7 +11,7 @@ const Navbar = () => {
 
   useEffect(() => {
     // Local storage'dan dark mode tercihini al
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    const savedDarkMode = getItem('darkMode', false);
     setDarkMode(savedDarkMode);
     
     // Dark mode'u uygula
@@ -37,7 +38,7 @@ const Navbar = () => {
       document.documentElement.classList.remove('dark');
     }
     
-    localStorage.setItem('darkMode', newDarkMode);
+    setItem('darkMode', newDarkMode);
   };
 
   const toggleMenu = () => {

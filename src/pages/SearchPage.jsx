@@ -34,14 +34,14 @@ const SearchPage = () => {
     };
 
     const loadFavorites = () => {
-      const savedFavorites = localStorage.getItem('favorites');
+      const savedFavorites = getItem('favorites', []);
       if (savedFavorites) {
         setFavorites(JSON.parse(savedFavorites));
       }
     };
 
     const loadLikes = () => {
-      const savedLikes = localStorage.getItem('likes');
+      const savedLikes = getItem('likes', {});
       if (savedLikes) {
         setLikes(JSON.parse(savedLikes));
       }
@@ -54,12 +54,12 @@ const SearchPage = () => {
 
   // Favori bilgileri kaydet
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    setItem('favorites', favorites);
   }, [favorites]);
 
   // Beğenileri kaydet
   useEffect(() => {
-    localStorage.setItem('likes', JSON.stringify(likes));
+    setItem('likes', likes);
   }, [likes]);
 
   // Arama işlevi

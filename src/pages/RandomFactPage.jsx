@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaRandom } from 'react-icons/fa';
 import FactCard from '../components/FactCard';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { getItem, setItem } from '../utils/localStorage';
 
 const RandomFactPage = () => {
   const navigate = useNavigate();
@@ -40,17 +41,13 @@ const RandomFactPage = () => {
     };
 
     const loadFavorites = () => {
-      const savedFavorites = localStorage.getItem('favorites');
-      if (savedFavorites) {
-        setFavorites(JSON.parse(savedFavorites));
-      }
+      const savedFavorites = getItem('favorites', []);
+      setFavorites(savedFavorites);
     };
 
     const loadLikes = () => {
-      const savedLikes = localStorage.getItem('likes');
-      if (savedLikes) {
-        setLikes(JSON.parse(savedLikes));
-      }
+      const savedLikes = getItem('likes', {});
+      setLikes(savedLikes);
     };
 
     loadAllFacts();
@@ -60,12 +57,12 @@ const RandomFactPage = () => {
 
   // Favori bilgileri kaydet
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    setItem('favorites', favorites);
   }, [favorites]);
 
   // Beğenileri kaydet
   useEffect(() => {
-    localStorage.setItem('likes', JSON.stringify(likes));
+    setItem('likes', likes);
   }, [likes]);
 
   const handleBackToHome = () => {

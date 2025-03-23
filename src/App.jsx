@@ -10,6 +10,7 @@ import RandomFactPage from './pages/RandomFactPage';
 import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotFoundPage';
 import BannerAd from './components/BannerAd';
+import { getItem, setItem } from './utils/localStorage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -17,11 +18,11 @@ function App() {
 
   useEffect(() => {
     // Dark mode ayarını localStorage'dan al
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    const savedDarkMode = getItem('darkMode', false);
     setDarkMode(savedDarkMode);
     
     // Favorileri localStorage'dan al
-    const savedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const savedFavorites = getItem('favorites', []);
     console.log('App - Yüklenen favoriler:', savedFavorites);
     setFavorites(savedFavorites);
   }, []);
@@ -29,7 +30,7 @@ function App() {
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
-    localStorage.setItem('darkMode', newDarkMode.toString());
+    setItem('darkMode', newDarkMode);
   };
 
   const handleToggleFavorite = (fact) => {
@@ -50,7 +51,7 @@ function App() {
     
     console.log('App - Yeni favoriler:', newFavorites);
     setFavorites(newFavorites);
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    setItem('favorites', newFavorites);
   };
 
   const isFavorite = (factId) => {
